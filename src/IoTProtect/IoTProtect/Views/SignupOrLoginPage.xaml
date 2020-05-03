@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IoTProtect.Views.SignupOrLoginPage"
+             Title="Εγγραφή ή Σύνδεση">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="30,40,30,0">
+                <Label VerticalOptions="FillAndExpand"/>
+                <Label  HorizontalTextAlignment="Center"  Text="Δεν έχετε λογαριασμό; Δημιουργήστε ένα για να καταχωρήσετε τις συσκευές σας"/>
+                <Button x:Name="btnNewAccount"
+                    Text="Νέος λογαριασμός"
+                        BorderColor="Gray"
+                        CornerRadius="5"
+                        BackgroundColor="AliceBlue"
+                        BorderWidth="1"
+                        Clicked="btnNewAccount_Clicked"/>
+                <Label  HorizontalTextAlignment="Center"  Text="Εάν έχετε ήδη λογαριασμό καταχωρήστε το email και τον κωδικό σας για να συνδεθείτε" Padding="0,40,0,0"/>
+                <Entry Placeholder="EMail" Keyboard="Email" ReturnType="Next"  />
+                <Entry Placeholder="Κωδικός" IsPassword="True" ReturnType="Done" />
+                <Button x:Name="btnConnectToAccount"
+                    Text="Σύνδεση"
+                        BorderColor="Gray"
+                        CornerRadius="5"
+                        BackgroundColor="AliceBlue"
+                        BorderWidth="1"/>
+                <Button Text="Ξεχάσατε τον κωδικό σας;" />
+                <Label VerticalOptions="FillAndExpand"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

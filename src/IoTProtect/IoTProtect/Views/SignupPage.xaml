@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="Δημιουργία λογαριασμού" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="IoTProtect.Views.SignupPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="30,0">
+                <Label VerticalOptions="FillAndExpand"/>
+                <Entry x:Name="txtEmail" Placeholder="EMail" Keyboard="Email" ReturnType="Next" />
+                <Entry x:Name="txtPassword" Placeholder="Κωδικός" IsPassword="True" ReturnType="Next" />
+                <Entry x:Name="txtPasswordConfirmation" Placeholder="Επιβεβαίωση κωδικού" IsPassword="True" ReturnType="Next" />
+                <Entry Placeholder="Όνομα" ReturnType="Next" />
+                <Entry Placeholder="Επώνυμο" ReturnType="Next" />
+                <Entry Placeholder="Τηλέφωνο" ReturnType="Next" Keyboard="Telephone" />
+                <Entry Placeholder="Διεύθυνση" ReturnType="Next" />
+                <Picker Title="Χώρα">
+                    <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                    <x:String></x:String>
+                    <x:String>Baboon</x:String>
+                    <x:String>Capuchin Monkey</x:String>
+                    <x:String>Blue Monkey</x:String>
+                    <x:String>Squirrel Monkey</x:String>
+                    <x:String>Golden Lion Tamarin</x:String>
+                    <x:String>Howler Monkey</x:String>
+                    <x:String>Japanese Macaque</x:String>
+                    </x:Array>
+                    </Picker.ItemsSource>
+
+                </Picker>
+                <Label HorizontalTextAlignment="Center" FontSize="Default" TextColor="Gray" Text="Επιλέγοντας τη δημιουργία λογαριασμού, συμφωνείτε οτι έχετε αποδεχθεί τους όρους χρήσης" />
+                <Button Text="Όροι χρήσης" />
+                <Button x:Name="btnCreateAccount"
+                    Text="Δημιουργία λογαριασμού"
+                    BorderColor="Gray"
+                    CornerRadius="5"
+                    BackgroundColor="AliceBlue"
+                    BorderWidth="1"/>
+                <Label VerticalOptions="FillAndExpand"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

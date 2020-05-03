@@ -13,6 +13,13 @@ namespace IoTProtect.Views
         public MainPage()
         {
             InitializeComponent();
+
+            CheckShouldLoginOrSignup();
+        }
+
+        private void CheckShouldLoginOrSignup()
+        {
+            Navigation.PushModalAsync(new NavigationPage(new SignupOrLoginPage()));
         }
     }
 }
