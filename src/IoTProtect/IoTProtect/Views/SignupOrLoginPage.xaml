@@ -7,22 +7,30 @@
         <ScrollView>
             <StackLayout Padding="30,40,30,0">
                 <Label VerticalOptions="FillAndExpand"/>
-                <Label  HorizontalTextAlignment="Center"  Text="Δεν έχετε λογαριασμό; Δημιουργήστε ένα για να καταχωρήσετε τις συσκευές σας"/>
+                <Label  HorizontalTextAlignment="Center"
+                        TextColor="Gray"
+                        Text="Δεν έχετε λογαριασμό; Δημιουργήστε ένα για να καταχωρήσετε τις συσκευές σας"/>
                 <Button x:Name="btnNewAccount"
                     Text="Νέος λογαριασμός"
                         BorderColor="Gray"
                         CornerRadius="5"
-                        BackgroundColor="AliceBlue"
+                        TextColor="White"
+                        FontSize="Large"
+                        BackgroundColor="LimeGreen"
                         BorderWidth="1"
                         Clicked="btnNewAccount_Clicked"/>
-                <Label  HorizontalTextAlignment="Center"  Text="Εάν έχετε ήδη λογαριασμό καταχωρήστε το email και τον κωδικό σας για να συνδεθείτε" Padding="0,40,0,0"/>
+                <Label  HorizontalTextAlignment="Center"
+                        TextColor="Gray"
+                        Text="Εάν έχετε ήδη λογαριασμό καταχωρήστε το email και τον κωδικό σας για να συνδεθείτε" Padding="0,40,0,0"/>
                 <Entry Placeholder="EMail" Keyboard="Email" ReturnType="Next"  />
                 <Entry Placeholder="Κωδικός" IsPassword="True" ReturnType="Done" />
                 <Button x:Name="btnConnectToAccount"
                     Text="Σύνδεση"
                         BorderColor="Gray"
                         CornerRadius="5"
-                        BackgroundColor="AliceBlue"
+                        TextColor="White"
+                        FontSize="Large"
+                        BackgroundColor="CornflowerBlue"
                         BorderWidth="1"/>
                 <Button Text="Ξεχάσατε τον κωδικό σας;" />
                 <Label VerticalOptions="FillAndExpand"/>

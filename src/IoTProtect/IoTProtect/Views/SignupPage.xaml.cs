@@ -10,6 +10,13 @@ namespace IoTProtect.Views
         public SignupPage()
         {
             InitializeComponent();
+
+            mysignup.OnSigneupCompleted += Mysignup_OnSigneupCompleted;
+        }
+
+        private void Mysignup_OnSigneupCompleted(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
 
         private bool firstAppear = true;
@@ -24,5 +31,10 @@ namespace IoTProtect.Views
             }
         }
 
+        void btnCreateAccount_Clicked(System.Object sender, System.EventArgs e)
+        {
+
+            //Navigation.PopModalAsync();
+        }
     }
 }

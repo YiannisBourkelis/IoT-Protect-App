@@ -8,6 +8,7 @@ namespace IoTProtect.Views
 {
     public partial class SignupOrLoginPage : ContentPage
     {
+
         public SignupOrLoginPage()
         {
             InitializeComponent();

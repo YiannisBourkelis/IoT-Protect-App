@@ -1,14 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Title="Δημιουργία λογαριασμού" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="IoTProtect.Views.SignupPage">
+<ContentPage Title="Δημιουργία λογαριασμού"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:IoTProtect.ViewModels"
+             x:Class="IoTProtect.Views.SignupPage"
+             >
+    <ContentPage.BindingContext>  
+        <local:SignupViewModel x:Name="mysignup"/>
+    </ContentPage.BindingContext>  
+
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Margin="30,0">
+            <StackLayout Margin="20,0">
                 <Label VerticalOptions="FillAndExpand"/>
-                <Entry x:Name="txtEmail" Placeholder="EMail" Keyboard="Email" ReturnType="Next" />
-                <Entry x:Name="txtPassword" Placeholder="Κωδικός" IsPassword="True" ReturnType="Next" />
-                <Entry x:Name="txtPasswordConfirmation" Placeholder="Επιβεβαίωση κωδικού" IsPassword="True" ReturnType="Next" />
-                <Entry Placeholder="Όνομα" ReturnType="Next" />
-                <Entry Placeholder="Επώνυμο" ReturnType="Next" />
+                <Entry x:Name="txtEmail" Placeholder="EMail" Keyboard="Email" ReturnType="Next" Text="{Binding Email}" />
+                <Entry x:Name="txtPassword" Placeholder="Κωδικός" IsPassword="True" ReturnType="Next" Text="{Binding Password}" />
+                <Entry x:Name="txtPasswordConfirmation" Placeholder="Επιβεβαίωση κωδικού" IsPassword="True" ReturnType="Next" Text="{Binding PasswordConfirmation}" />
+                <Entry Placeholder="Όνομα" ReturnType="Next" Text="{Binding FirstName}" />
+                <Entry Placeholder="Επώνυμο" ReturnType="Next" Text="" />
                 <Entry Placeholder="Τηλέφωνο" ReturnType="Next" Keyboard="Telephone" />
                 <Entry Placeholder="Διεύθυνση" ReturnType="Next" />
                 <Picker Title="Χώρα">
@@ -28,12 +37,22 @@
                 </Picker>
                 <Label HorizontalTextAlignment="Center" FontSize="Default" TextColor="Gray" Text="Επιλέγοντας τη δημιουργία λογαριασμού, συμφωνείτε οτι έχετε αποδεχθεί τους όρους χρήσης" />
                 <Button Text="Όροι χρήσης" />
+                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}">
+
+                </ActivityIndicator>
+                <Label IsVisible="{Binding IsBusy}"  HorizontalTextAlignment="Center" FontSize="Default" FontAttributes="Bold" TextColor="MediumSeaGreen" Text="Έναρξη δημιουργίας νέου λογαριασμού. Η λειτουργία θα ολοκληρωθεί σε λίγα δευτερόλεπτα." />
                 <Button x:Name="btnCreateAccount"
                     Text="Δημιουργία λογαριασμού"
                     BorderColor="Gray"
                     CornerRadius="5"
-                    BackgroundColor="AliceBlue"
-                    BorderWidth="1"/>
+                    TextColor="White"
+                    FontSize="Large"
+                    BackgroundColor="LimeGreen"
+                    BorderWidth="1"
+                    Command="{Binding SignupCommand}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Clicked="btnCreateAccount_Clicked"
+                        />
                 <Label VerticalOptions="FillAndExpand"/>
             </StackLayout>
         </ScrollView>
