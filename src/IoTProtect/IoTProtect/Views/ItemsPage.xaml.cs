@@ -27,6 +27,11 @@ namespace IoTProtect.Views
             BindingContext = viewModel = new ItemsViewModel();
         }
 
+        ~ItemsPage()
+        {
+            Console.WriteLine("destroy");
+        }
+
         async void OnItemSelected(object sender, EventArgs args)
         {
             var layout = (BindableObject)sender;

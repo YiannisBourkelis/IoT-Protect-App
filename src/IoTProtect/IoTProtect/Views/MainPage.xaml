@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:views="clr-namespace:IoTProtect.Views" x:Class="IoTProtect.Views.MainPage">
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            mc:Ignorable="d"
+            xmlns:views="clr-namespace:IoTProtect.Views"
+            x:Class="IoTProtect.Views.MainPage"
+            ios:TabbedPage.TranslucencyMode="Opaque"
+            BarBackgroundColor="Black">
     <TabbedPage.Children>
         <NavigationPage Title="Browse">
             <NavigationPage.Icon>
@@ -8,7 +17,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
+                <views:IoTDevicesPage />
             </x:Arguments>
         </NavigationPage>
         <NavigationPage Title="About">
@@ -18,7 +27,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:AboutPage />
+                <views:LoginPage />
             </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>

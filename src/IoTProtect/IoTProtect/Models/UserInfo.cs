@@ -6,6 +6,8 @@ namespace IoTProtect.Models
     {
         public UserInfo()
         {
+            Email = "aaa@aa.sa";
+            Password = "8888";
         }
 
         public string Email { get; set; }
@@ -13,5 +15,6 @@ namespace IoTProtect.Models
         public string PasswordConfirmation { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string AccessToken { get; set; }
     }
 }

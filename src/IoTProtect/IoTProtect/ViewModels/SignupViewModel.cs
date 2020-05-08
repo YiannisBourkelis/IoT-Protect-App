@@ -17,6 +17,7 @@ namespace IoTProtect.ViewModels
         public Command SignupCommand { get; }
 
         public event EventHandler<EventArgs> OnSigneupCompleted;
+        public event EventHandler<ExceptionEventArgs> OnUnhandledException;
 
         public SignupViewModel()
         {
@@ -26,8 +27,6 @@ namespace IoTProtect.ViewModels
             }
 
             SignupCommand = new Command(async () => await DoSignupCommandAsync());
-
-
         }
 
         private async Task DoSignupCommandAsync()
@@ -44,9 +43,12 @@ namespace IoTProtect.ViewModels
                         {
                             return true;   //Is valid
                         }
-                        //TODO: only for local use with self signed certificates
-                        //TODO: Should add conditional compilation flags
+#if DEBUG
+                        Console.WriteLine("HttpClientHandler > Accept self signed certificate");
                         return true;
+#else
+                        return false;
+#endif
                     };
                     using (var httpClient = new HttpClient(httpClientHandler))
                     {
@@ -83,6 +85,7 @@ namespace IoTProtect.ViewModels
             }
             catch (Exception e)
             {
+                OnUnhandledException?.Invoke(this, new ExceptionEventArgs(e));
 
             }
             finally

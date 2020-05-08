@@ -14,6 +14,7 @@ namespace IoTProtect
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<MockDeviceInfoDatastore>();
             MainPage = new MainPage();
         }
 

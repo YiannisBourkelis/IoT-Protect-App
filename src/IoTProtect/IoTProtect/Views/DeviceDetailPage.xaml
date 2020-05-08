@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage x:Name="Root"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IoTProtect.Views.DeviceDetailPage"
+             xmlns:local="clr-namespace:IoTProtect.ViewModels"
+             >
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ακύρωση" Clicked="Cancel_ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="15,40,15,0">
+            <Label Text="{Binding deviceInfo.ID}" />
+            <Entry x:Name="txtDeviceDescription" Text="{Binding deviceInfoModified.Description}" />
+            <Entry x:Name="txtDeviceLocation"  />
+
+            <Button x:Name="btnSave"
+                Text="Αποθήκευση"
+                BorderColor="#1a1a1a"
+                CornerRadius="5"
+                TextColor="White"
+                FontSize="Body"
+                FontAttributes="Bold"
+                BackgroundColor="#0F9F2A"
+                BorderWidth="1"
+                Command="{Binding UpdateDeviceCommand}"
+            />
+
+            <Button x:Name="btnDelete"
+                Text="Διαγραφή"
+                BorderColor="#1a1a1a"
+                CornerRadius="5"
+                TextColor="White"
+                FontSize="Body"
+                FontAttributes="Bold"
+                BackgroundColor="#e50914"
+                BorderWidth="1"
+                Command="{Binding DeleteDeviceCommand}"
+                IsEnabled="{Binding .}"
+            />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

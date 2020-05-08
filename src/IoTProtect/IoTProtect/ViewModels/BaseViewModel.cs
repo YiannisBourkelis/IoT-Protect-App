@@ -13,6 +13,7 @@ namespace IoTProtect.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<DeviceInfo> DevicesDataStore => DependencyService.Get<IDataStore<DeviceInfo>>();
 
         bool isBusy = false;
         public bool IsBusy

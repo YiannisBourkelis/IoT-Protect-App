@@ -12,6 +12,12 @@ namespace IoTProtect.Views
             InitializeComponent();
 
             mysignup.OnSigneupCompleted += Mysignup_OnSigneupCompleted;
+            mysignup.OnUnhandledException += Mysignup_OnUnhandledException;
+        }
+
+        private void Mysignup_OnUnhandledException(object sender, ViewModels.ExceptionEventArgs e)
+        {
+            this.DisplayAlert(e.exception.Message, e.exception.ToString(), "OK");
         }
 
         private void Mysignup_OnSigneupCompleted(object sender, EventArgs e)
@@ -33,7 +39,7 @@ namespace IoTProtect.Views
 
         void btnCreateAccount_Clicked(System.Object sender, System.EventArgs e)
         {
-
+            
             //Navigation.PopModalAsync();
         }
     }
