@@ -44,9 +44,60 @@ namespace IoTProtect.ViewModels
             deviceInfo.Description = deviceInfoModified.Description;
             deviceInfo.Location = deviceInfoModified.Location;
 
+            //check if the device group for the selected device exist
+            DeviceInfoList tmpDeviceGroup = null;
+            foreach (var deviceGroup in DeviceGroupList)
+            {
+                if (deviceGroup.Heading == deviceInfo.Location)
+                {
+                    tmpDeviceGroup = deviceGroup;
+                }
+            }
 
+            //check if we should move the device in a new group
+            //or we need to create a new group
+            foreach (var deviceGroup in DeviceGroupList)
+            {
 
-            await Application.Current.MainPage.Navigation.PopModalAsync(true);
+                int idx = deviceGroup.IndexOf(deviceInfo);
+                if (idx > -1)
+                {
+                    //device found
+
+                    //if the user changed the device location to an other
+                    //device group that exists, then move it to the new  group
+                    if (tmpDeviceGroup != null && deviceGroup.Heading != deviceInfo.Location)
+                    {
+                        deviceGroup.RemoveAt(idx);
+                        tmpDeviceGroup.Add(deviceInfo);
+                    }
+                    else
+                    {
+                        //if the user changed the device location to a
+                        //device group that does not exist, then create the new  group
+                        //and move the device to the new group
+                        if (tmpDeviceGroup == null)
+                        {
+                            deviceGroup.RemoveAt(idx);
+                            DeviceInfoList newGroup = new DeviceInfoList();
+                            newGroup.Heading = deviceInfo.Location;
+                            newGroup.Add(deviceInfo);
+                            DeviceGroupList.Add(newGroup);
+                        }
+                    }
+
+                    //if the device group that the device was belonging
+                    //does not contain any other devices
+                    //remove it
+                    if (deviceGroup.Count == 0)
+                    {
+                        DeviceGroupList.Remove(deviceGroup);
+                    }
+
+                    await Application.Current.MainPage.Navigation.PopModalAsync(true);
+                    return await Task.FromResult(true);
+                }
+            }
 
             return await Task.FromResult(false);
         }

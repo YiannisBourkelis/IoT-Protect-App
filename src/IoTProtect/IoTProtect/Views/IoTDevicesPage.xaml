@@ -6,7 +6,7 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              x:Class="IoTProtect.Views.IoTDevicesPage"
              xmlns:local="clr-namespace:IoTProtect.ViewModels"
-             Title="Λίστα ανιχνευτών">
+             Title="Ανιχνευτές">
 
     <ContentPage.ToolbarItems>
       <ToolbarItem Text="Προσθήκη"> </ToolbarItem>
@@ -29,7 +29,7 @@
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout BackgroundColor="#131313" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource AppBackgroundColor}">
                             <Label TextColor="White" FontAttributes="Bold" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Text="{Binding Heading}" />
                         </StackLayout>
                      </ViewCell>
@@ -39,10 +39,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
                         <StackLayout Orientation="Vertical" BackgroundColor="SlateGray" Padding="0,0,0,1" Margin="0,0,0,5">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="#1B96DA" Margin="0,0,0,-6">
                                  <Label FontAttributes="Bold" FontSize="Default" TextColor="White" HorizontalOptions="StartAndExpand" Text="{Binding Description}"/>
-                                 <Label FontAttributes="Bold" FontSize="Default" TextColor="White" HorizontalOptions="Center" Text="{Binding ID}"/>
                                  <Label FontAttributes="Bold" VerticalTextAlignment="Center" FontSize="Small" TextColor="White" HorizontalOptions="End" Text="44%"/>
                                 <ProgressBar VerticalOptions="Center" BackgroundColor="Aquamarine" ProgressColor="Green" Progress="0.5" WidthRequest="25" />
                             </StackLayout>

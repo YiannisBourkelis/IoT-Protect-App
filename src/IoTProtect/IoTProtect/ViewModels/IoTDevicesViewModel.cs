@@ -68,31 +68,19 @@ namespace IoTProtect.ViewModels
 
                
                 DeviceInfoList d = new DeviceInfoList();
-                d.Add(new DeviceInfo() { Description = "kkkkk 1" });
-                d.Add(new DeviceInfo() { Description = "aaaaa 2" });
+                d.Add(new DeviceInfo() { Description = "Κουζίνα" });
+                d.Add(new DeviceInfo() { Description = "Σαλόνι" });
 
-                d.Heading = "Home";
+                d.Heading = "Σπίτι";
 
                 DevicesListContainer.Clear();
                 DevicesListContainer.Add(d);
 
                 DeviceInfoList d2 = new DeviceInfoList();
-                d2.Add(new DeviceInfo() { Description = "kkkkk 1" });
-                d2.Add(new DeviceInfo() { ID=130, Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { ID=120, Description = "bbb cc aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Add(new DeviceInfo() { Description = "aaaaa 2" });
-                d2.Heading = "Office";
+                d2.Add(new DeviceInfo() { Description = "Αποθήκη" });
+                d2.Add(new DeviceInfo() { ID=130, Description = "Ταμείο" });
+                d2.Add(new DeviceInfo() { ID=120, Description = "Είσοδος" });
+                d2.Heading = "Μαγαζί";
                 DevicesListContainer.Add(d2);
             }
             catch (Exception ex)

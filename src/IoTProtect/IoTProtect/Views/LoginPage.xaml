@@ -11,7 +11,7 @@
 
     <ContentPage.Content>
 
-        <ScrollView BackgroundColor="#131313">
+        <ScrollView BackgroundColor="{StaticResource AppBackgroundColor}">
 
             <StackLayout Padding="30,40,30,0">
                 <Label VerticalOptions="FillAndExpand"/>
@@ -28,20 +28,10 @@
                         
                 <Entry Placeholder="Διεύθυνση email"
                        Text="{Binding Email}"
-                       HeightRequest="45"
-                       FontSize="Body"
-                       FontAttributes="None"
-                       TextColor="White"
-                       BackgroundColor="#454545"
                        Keyboard="Email"
                        ReturnType="Next "  />
                 <Entry Placeholder="Κωδικός πρόσβασης"
                        Text="{Binding Password}"
-                       HeightRequest="45"
-                       FontSize="Body"
-                       FontAttributes="None"
-                       TextColor="White"
-                       BackgroundColor="#454545"
                        IsPassword="True"
                        ReturnType="Done"
                        Margin="0,10" />
@@ -50,14 +40,8 @@
                     IsRunning="{Binding IsBusy}"
                     Color="White"/>
                 <Button x:Name="btnConnectToAccount"
+                    Style="{StaticResource ButtonRedStyle}"
                     Text="Σύνδεση"
-                        BorderColor="#1a1a1a"
-                        CornerRadius="5"
-                        TextColor="White"
-                        FontSize="Large"
-                        FontAttributes="Bold"
-                        BackgroundColor="#e50914"
-                        BorderWidth="1"
                         Command="{Binding LoginCommand}"
                         IsEnabled="{Binding IsNotBusy}"
                         />

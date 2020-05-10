@@ -4,41 +4,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IoTProtect.Views.DeviceDetailPage"
              xmlns:local="clr-namespace:IoTProtect.ViewModels"
+             Title="Ρυθμίσεις"
              >
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Ακύρωση" Clicked="Cancel_ToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Padding="15,40,15,0">
-            <Label Text="{Binding deviceInfo.ID}" />
-            <Entry x:Name="txtDeviceDescription" Text="{Binding deviceInfoModified.Description}" />
-            <Entry x:Name="txtDeviceLocation"  />
+        <ScrollView BackgroundColor="{StaticResource AppBackgroundColor}">
+            <StackLayout Padding="15,40,15,0">
+                <Label Text="{Binding deviceInfo.ID}" />
+                <Entry x:Name="txtDeviceDescription" Text="{Binding deviceInfoModified.Description}" Placeholder="Το μέρος που βρίσκεται ο αισθητήρας (π.χ. Σπίτι)"  />
+                <Entry x:Name="txtDeviceLocation" Text="{Binding deviceInfoModified.Location}" Placeholder="Το σημείο που βρίσκεται ο αισθητήρας (π.χ. Κουζίνα)"   />
 
-            <Button x:Name="btnSave"
-                Text="Αποθήκευση"
-                BorderColor="#1a1a1a"
-                CornerRadius="5"
-                TextColor="White"
-                FontSize="Body"
-                FontAttributes="Bold"
-                BackgroundColor="#0F9F2A"
-                BorderWidth="1"
-                Command="{Binding UpdateDeviceCommand}"
-            />
 
-            <Button x:Name="btnDelete"
-                Text="Διαγραφή"
-                BorderColor="#1a1a1a"
-                CornerRadius="5"
-                TextColor="White"
-                FontSize="Body"
-                FontAttributes="Bold"
-                BackgroundColor="#e50914"
-                BorderWidth="1"
-                Command="{Binding DeleteDeviceCommand}"
-                IsEnabled="{Binding .}"
-            />
-        </StackLayout>
+                <StackLayout Orientation="Vertical" BackgroundColor="#454545">
+                    <Entry x:Name="txtDeviceLocation2"
+                            Placeholder="Το σημείο που βρίσκεται ο αισθητήρας (π.χ. Κουζίνα)"   />
+                    <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Button Padding="0" Text=" Σπίτι " CornerRadius="5" HeightRequest="20" BackgroundColor="White" TextColor="Black"></Button>
+                        <Button Padding="0" Text=" Γραφείο " CornerRadius="5" HeightRequest="20" BackgroundColor="White" TextColor="Black"></Button>
+                        <Button Padding="0" Text=" Μαγαζί " CornerRadius="5" HeightRequest="20" BackgroundColor="White" TextColor="Black"></Button>
+                        <Button Padding="0" Text=" Ιατρείο " CornerRadius="5" HeightRequest="20" BackgroundColor="White" TextColor="Black"></Button>
+                        <Button Padding="0" Text=" Ξενοδοχείο " CornerRadius="5" HeightRequest="20" BackgroundColor="White" TextColor="Black"></Button>
+                        <Button Padding="0" Text=" Σκάφος " CornerRadius="5" HeightRequest="20" BackgroundColor="White" TextColor="Black"></Button>
+                        <Button Padding="0" Text=" Εξoχικό " CornerRadius="5" HeightRequest="20" BackgroundColor="White" TextColor="Black"></Button>
+                    </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+
+                <Button x:Name="btnSave"
+                    Style="{StaticResource ButtonGreenStyle}"
+                    Text="Αποθήκευση"
+                    Command="{Binding UpdateDeviceCommand}"
+                />
+
+                <Button x:Name="btnDelete"
+                    Style="{StaticResource ButtonRedStyle}"
+                    Text="Διαγραφή"
+                    Command="{Binding DeleteDeviceCommand}"
+                    IsEnabled="{Binding .}"
+                />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
