@@ -4,16 +4,16 @@
             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             x:Class="IoTProtect.Views.IoTDevicesPage"
+             x:Class="IoTProtect.Views.DevicesPage"
              xmlns:local="clr-namespace:IoTProtect.ViewModels"
              Title="Ανιχνευτές">
 
     <ContentPage.ToolbarItems>
-      <ToolbarItem Text="Προσθήκη"> </ToolbarItem>
+      <ToolbarItem Text="Προσθήκη" Clicked="AddDevice_ToolbarItem_Clicked"> </ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <ContentPage.BindingContext>
-        <local:IoTDevicesViewModel  x:Name="iotDevicesViewModel" />
+        <local:DevicesViewModel  x:Name="iotDevicesViewModel" />
     </ContentPage.BindingContext>  
 
     <ContentPage.Content>

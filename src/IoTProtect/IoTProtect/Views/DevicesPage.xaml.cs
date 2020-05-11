@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace IoTProtect.Views
 {
-    public partial class IoTDevicesPage : ContentPage
+    public partial class DevicesPage : ContentPage
     {
-        public IoTDevicesPage()
+        public DevicesPage()
         {
             InitializeComponent();
         }
@@ -77,6 +77,13 @@ namespace IoTProtect.Views
             viewModel.DeviceGroupList = iotDevicesViewModel.DevicesListContainer;
             Navigation.PushModalAsync(new Xamarin.Forms.NavigationPage(new DeviceDetailPage(viewModel)));
         }
+
+        void AddDevice_ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+            //AddDeviceViewModel addDeviceViewModel = new AddDeviceViewModel();
+            Navigation.PushModalAsync(new Xamarin.Forms.NavigationPage(new AddDevicePage()));
+        }
+
         /*
         //add new location
         void EditLocation_Clicked(System.Object sender, System.EventArgs e)

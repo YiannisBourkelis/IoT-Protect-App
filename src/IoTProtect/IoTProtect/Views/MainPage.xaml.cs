@@ -19,7 +19,7 @@ namespace IoTProtect.Views
 
         private void CheckShouldLoginOrSignup()
         {
-            //var nav = new NavigationPage(new IoTDevicesPage());
+            //var nav = new NavigationPage(new DevicesPage());
             //Navigation.PushModalAsync(nav);
             //nav.BarTextColor = Color.Red;
         }

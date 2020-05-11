@@ -17,7 +17,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:IoTDevicesPage />
+                <views:DevicesPage />
             </x:Arguments>
         </NavigationPage>
         <NavigationPage Title="Λογαριασμός">

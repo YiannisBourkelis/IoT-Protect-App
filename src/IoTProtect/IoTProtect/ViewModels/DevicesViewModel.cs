@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace IoTProtect.ViewModels
 {
-    public class IoTDevicesViewModel : BaseViewModel
+    public class DevicesViewModel : BaseViewModel
     {
         //public properties
         public ObservableCollection<DeviceInfo> Devices { get; set; }
@@ -17,7 +17,7 @@ namespace IoTProtect.ViewModels
         //public commands
         public Command LoadDevicesCommand { get; set; }
 
-        public IoTDevicesViewModel()
+        public DevicesViewModel()
         {
             Devices = new ObservableCollection<DeviceInfo>();
             DevicesListContainer = new ObservableCollection<DeviceInfoList>();

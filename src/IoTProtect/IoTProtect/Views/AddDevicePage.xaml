@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:IoTProtect.ViewModels"
+             Title="Προσθήκη ανιχνευτή"
+             x:Class="IoTProtect.Views.AddDevicePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ακύρωση" Clicked="Cancel_ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource AppBackgroundColor}">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Γίνεται αναζήτηση ανιχνευτή..." TextColor="#E2D400"/>
+                <ActivityIndicator Color="White" IsRunning="True" IsVisible="True"></ActivityIndicator>
+            </StackLayout>
+
+            <Label TextColor="#878787" Text="Για να καταχωρήσετε έναν ανιχνευτή, ενεργοποιήστε το WiFi στον ανιχνευτή και στη συνέχεια συνδεθείτε στο WiFi που θα δημιουργηθεί με τα στοιχεία:" />
+
+            <Label LineBreakMode="WordWrap">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="WiFi SSID: " />
+                        <Span Text="IoTProtect" FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label LineBreakMode="WordWrap">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="WiFi password:" />
+                        <Span Text="password" FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
