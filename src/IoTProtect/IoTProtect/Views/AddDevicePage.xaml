@@ -2,41 +2,71 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IoTProtect.ViewModels"
+             xmlns:controls="clr-namespace:IoTProtect.Views"
              Title="Προσθήκη ανιχνευτή"
-             x:Class="IoTProtect.Views.AddDevicePage">
+             x:Class="IoTProtect.Views.AddDevicePage" Padding="10,0"
+             BackgroundColor="{StaticResource AppBackgroundColor}">
+
+    <ContentPage.BindingContext>
+        <local:AddDeviceViewModel  x:Name="addDeviceViewModel" />
+    </ContentPage.BindingContext>  
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Ακύρωση" Clicked="Cancel_ToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="{StaticResource AppBackgroundColor}">
+        <ScrollView>
+            <StackLayout>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Γίνεται αναζήτηση ανιχνευτή..." TextColor="#E2D400"/>
-                <ActivityIndicator Color="White" IsRunning="True" IsVisible="True"></ActivityIndicator>
+                <StackLayout IsVisible="{Binding atSearchDeviceState}" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Γίνεται αναζήτηση ανιχνευτή..." VerticalTextAlignment="Center" TextColor="{StaticResource CurrentActionColor}"/>
+                    <ActivityIndicator Color="White" IsRunning="True" IsVisible="True"></ActivityIndicator>
+                </StackLayout>
+
+                <StackLayout IsVisible="{Binding DeviceFound}">
+                    <Label Text="Βρέθηκε ανιχνευτής καπνού IoTProtect"
+                           FontAttributes="Bold"
+                           FontSize="Large"/>
+                </StackLayout>
+
+                <StackLayout IsVisible="{Binding atDeviceSetupBegin}" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Παραμετροποίηση ανιχνευτή..." VerticalTextAlignment="Center" TextColor="{StaticResource CurrentActionColor}"/>
+                    <ActivityIndicator Color="White" IsRunning="True" IsVisible="True"></ActivityIndicator>
+                </StackLayout>
+
+                <StackLayout IsVisible="{Binding atDeviceSetupCompleteState}">
+                    <Label Style="{StaticResource ExplanationLabel}" Text="Η ρύθμιση του ανιχνευτή ολοκληρώθηκε. Αν θέλετε καταχωρείστε την τοποθεσία και το σημείο στο οποίο βρίσκεται ο ανιχνευτής για να τον αναγνωρίζετε ευκολότερα" />
+
+                    <controls:DeviceDetailLocationAndPointView>
+                    </controls:DeviceDetailLocationAndPointView>
+
+                    <Button Style="{StaticResource ButtonGreenStyle}"/>
+                </StackLayout>
+
+                <StackLayout IsVisible="{Binding atSearchDeviceState}">
+                    <Label Style="{StaticResource ExplanationLabel}" Text="Για να καταχωρήσετε έναν ανιχνευτή, ενεργοποιήστε το WiFi στον ανιχνευτή και στη συνέχεια συνδεθείτε στο WiFi που θα δημιουργηθεί με τα στοιχεία:" />
+
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="WiFi SSID: " />
+                                <Span Text="IoTProtect" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="WiFi password:" />
+                                <Span Text="password" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
             </StackLayout>
-
-            <Label TextColor="#878787" Text="Για να καταχωρήσετε έναν ανιχνευτή, ενεργοποιήστε το WiFi στον ανιχνευτή και στη συνέχεια συνδεθείτε στο WiFi που θα δημιουργηθεί με τα στοιχεία:" />
-
-            <Label LineBreakMode="WordWrap">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="WiFi SSID: " />
-                        <Span Text="IoTProtect" FontAttributes="Bold" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-
-            <Label LineBreakMode="WordWrap">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="WiFi password:" />
-                        <Span Text="password" FontAttributes="Bold" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

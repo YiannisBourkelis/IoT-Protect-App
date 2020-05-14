@@ -23,7 +23,7 @@
                   ItemsSource="{Binding DevicesListContainer}"
                   GroupDisplayBinding="{Binding Heading}"
                   ItemTapped="devicesListView_ItemTapped"
-                  BackgroundColor="#131313"
+                  BackgroundColor="{StaticResource AppBackgroundColor}"
                   >
 
             <ListView.GroupHeaderTemplate>

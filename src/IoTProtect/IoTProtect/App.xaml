@@ -7,6 +7,8 @@
             <!-- Colors -->
             <Color x:Key="AppBackgroundColor">#131313</Color>
             <Color x:Key="NavigationPrimary">#131313</Color>
+            <Color x:Key="GreenColor">#0F9F2A</Color>
+            <Color x:Key="CurrentActionColor">#E2D400</Color>
 
             <!-- Implicit Styles -->
             <Style TargetType="NavigationPage">
@@ -37,11 +39,16 @@
             </Style>
             <Style x:Key="ButtonGreenStyle" TargetType="Button"
                    BasedOn="{StaticResource BaseButtonStyle}">
-                <Setter Property="BackgroundColor" Value="#0F9F2A" />
+                <Setter Property="Text" Value="Αποθήκευση" />
+                <Setter Property="BackgroundColor" Value="{StaticResource GreenColor}" />
             </Style>
             <Style x:Key="ButtonRedStyle" TargetType="Button"
                    BasedOn="{StaticResource BaseButtonStyle}">
                 <Setter Property="BackgroundColor" Value="#e50914" />
+            </Style>
+
+            <Style x:Key="ExplanationLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="#878787" />
             </Style>
             
 

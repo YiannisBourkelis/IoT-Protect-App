@@ -36,7 +36,6 @@
 
                 <Button x:Name="btnSave"
                     Style="{StaticResource ButtonGreenStyle}"
-                    Text="Αποθήκευση"
                     Command="{Binding UpdateDeviceCommand}"
                 />
 
