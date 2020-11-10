@@ -16,12 +16,12 @@ namespace IoTProtect.ViewModels
 
         public AddDeviceViewModel()
         {
-            AddDeviceState = AddDeviceStateEnum.SearchForDevice;
+            AddDeviceState = AddDeviceStateEnum.DeviceSetupComplete;
             
             t.Elapsed += T_Elapsed;
             t.AutoReset = true;
             t.Interval = 3000;
-            t.Start();
+            //t.Start();
         }
 
         private void T_Elapsed(object sender, ElapsedEventArgs e)

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IoTProtect.ViewModels"
              x:Class="IoTProtect.Views.LoginPage"
-             Title="IoTProtect">
+             Title="Λογαριασμός">
 
     <ContentPage.BindingContext>
         <local:LoginViewModel  x:Name="loginViewModel" />
@@ -19,12 +19,12 @@
                         TextColor="White"
                         FontAttributes="Bold"
                         FontSize="Large"
-                        Text="Προσπαθείτε να εγγραφείτε στο IoTProtect;"/>
+                        Text="Θέλετε να εγγραφείτε στο IoTProtect;"/>
                  <Label  HorizontalTextAlignment="Center"
                         TextColor="White"
                         FontSize="Default"
                         FontAttributes="Bold"
-                        Text="Δεν μπορείτε να εγγραφείτε στο IoTProtect από την εφαρμογή. Ξέρουμε πως είναι ταλαιπωρία αυτό. Αφού γίνετε μέλος μπορείτε να αρχίσετε να παρακολουθείτε τις συσκευές σας μέσα από την εφαρμογή." Padding="0,20"/>
+                        Text="Οδηγίες για την σύνδεση ή εγγραφή κλπ..." Padding="0,20"/>
                         
                 <Entry Placeholder="Διεύθυνση email"
                        Text="{Binding Email}"

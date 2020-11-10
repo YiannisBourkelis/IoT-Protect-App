@@ -24,15 +24,15 @@
                     <ActivityIndicator Color="White" IsRunning="True" IsVisible="True"></ActivityIndicator>
                 </StackLayout>
 
+                <StackLayout IsVisible="{Binding atDeviceSetupBegin}" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Παραμετροποίηση ανιχνευτή..." VerticalTextAlignment="Center" TextColor="{StaticResource CurrentActionColor}"/>
+                    <ActivityIndicator Color="White" IsRunning="True" IsVisible="True"></ActivityIndicator>
+                </StackLayout>
+
                 <StackLayout IsVisible="{Binding DeviceFound}">
                     <Label Text="Βρέθηκε ανιχνευτής καπνού IoTProtect"
                            FontAttributes="Bold"
                            FontSize="Large"/>
-                </StackLayout>
-
-                <StackLayout IsVisible="{Binding atDeviceSetupBegin}" Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label Text="Παραμετροποίηση ανιχνευτή..." VerticalTextAlignment="Center" TextColor="{StaticResource CurrentActionColor}"/>
-                    <ActivityIndicator Color="White" IsRunning="True" IsVisible="True"></ActivityIndicator>
                 </StackLayout>
 
                 <StackLayout IsVisible="{Binding atDeviceSetupCompleteState}">

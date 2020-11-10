@@ -10,14 +10,20 @@ using IoTProtect.Services;
 
 namespace IoTProtect.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class Base2ViewModel : INotifyPropertyChanged
     {
-
         string title = string.Empty;
         public string Title
         {
             get { return title; }
             set { SetProperty(ref title, value); }
+        }
+
+        bool mIsLoading = false;
+        public bool IsLoading
+        {
+            get { return mIsLoading; }
+            set { SetProperty(ref mIsLoading, value); }
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -35,9 +41,13 @@ namespace IoTProtect.ViewModels
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var changed = PropertyChanged;
+            if (changed == null)
+                return;
+
+            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }

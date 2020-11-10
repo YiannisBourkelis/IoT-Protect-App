@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="IoTProtect.Views.DeviceDetailLocationAndPointView">
     <ContentView.Content>
-        <StackLayout>
+        <StackLayout Spacing="15">
             <StackLayout Orientation="Vertical" BackgroundColor="#454545">
-                <Entry x:Name="txtDeviceLocation"
-                    Placeholder="Το μέρος που βρίσκεται ο αισθητήρας (π.χ. Σπίτι)"   />
+                <Label HorizontalTextAlignment="Start" Text="Το μέρος που βρίσκεται ο αισθητήρας (π.χ. Σπίτι)"/>
+                <Entry x:Name="txtDeviceLocation" />
                 <ScrollView Orientation="Horizontal">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                         <Button Padding="0" Text=" Σπίτι " CornerRadius="5" HeightRequest="20" BackgroundColor="White" TextColor="Black"></Button>
@@ -19,8 +19,8 @@
             </StackLayout>
 
             <StackLayout Orientation="Vertical" BackgroundColor="#454545">
-            <Entry x:Name="txtDeviceLocation2"
-                    Placeholder="Το σημείο που βρίσκεται ο αισθητήρας (π.χ. Κουζίνα)"   />
+            <Label HorizontalTextAlignment="Start" Text="Το σημείο που βρίσκεται ο αισθητήρας (π.χ. Κουζίνα)"/>
+            <Entry x:Name="txtDeviceLocation2" />
                 <ScrollView Orientation="Horizontal">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                         <Button Padding="0" Text=" Σπίτι " CornerRadius="5" HeightRequest="20" BackgroundColor="White" TextColor="Black"></Button>

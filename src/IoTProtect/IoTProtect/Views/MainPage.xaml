@@ -8,6 +8,7 @@
             xmlns:views="clr-namespace:IoTProtect.Views"
             x:Class="IoTProtect.Views.MainPage"
             ios:TabbedPage.TranslucencyMode="Opaque"
+            BackgroundColor="{StaticResource AppBackgroundColor}"
             BarBackgroundColor="Black">
     <TabbedPage.Children>
         <NavigationPage Title="Ανιχνευτές">
@@ -17,7 +18,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:DevicesPage />
+                <views:DevicesListPage />
             </x:Arguments>
         </NavigationPage>
         <NavigationPage Title="Λογαριασμός">

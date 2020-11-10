@@ -33,7 +33,7 @@ namespace IoTProtect.ViewModels
         {
             try
             {
-                IsBusy = true;
+                //isBusy = true;
 
                 using (var httpClientHandler = new HttpClientHandler())
                 {
@@ -91,7 +91,7 @@ namespace IoTProtect.ViewModels
             finally
             {
 
-                IsBusy = false;
+                //IsBusy = false;
                 OnSigneupCompleted?.Invoke(this, null);
             }
 

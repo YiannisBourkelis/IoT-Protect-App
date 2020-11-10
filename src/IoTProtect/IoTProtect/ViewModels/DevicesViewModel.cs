@@ -49,10 +49,11 @@ namespace IoTProtect.ViewModels
                 //await DataStore.AddItemAsync(newItem);
             });
         }
-
+        
         private async Task ExecuteLoadDevicesCommand()
         {
-            IsBusy = true;
+            /*
+            //IsBusy = true;
 
             try
             {
@@ -91,6 +92,7 @@ namespace IoTProtect.ViewModels
             {
                 IsBusy = false;
             }
+            */
         }
 
     }

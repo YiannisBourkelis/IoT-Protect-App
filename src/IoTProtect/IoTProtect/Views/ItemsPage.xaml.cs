@@ -48,8 +48,10 @@ namespace IoTProtect.Views
         {
             base.OnAppearing();
 
+            /*
             if (viewModel.Items.Count == 0)
                 viewModel.IsBusy = true;
+            */
         }
     }
 }

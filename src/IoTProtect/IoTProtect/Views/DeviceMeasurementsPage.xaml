@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:IoTProtect.ViewModels"
+             Title="{Binding Title}"
+             x:Class="IoTProtect.Views.DeviceMeasurementsPage">
+    <ContentPage.BindingContext>
+        <local:DeviceMeasurementsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsLoading}" Command="{Binding LoadItemsCommand}">
+            <StackLayout VerticalOptions="FillAndExpand">
+
+                <CollectionView
+                    x:Name="DeviceMeasurementsCollectionView"
+                    SelectionMode="Single"
+                    SelectionChanged="DeviceMeasurementsCollectionView_SelectionChanged"
+                    ItemsSource="{Binding ItemsList}"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="DEVICE" BackgroundColor="Transparent" TextColor="White" />
+                                <Label Text="{Binding Name}" BackgroundColor="Transparent" TextColor="White" />
+                                <Label Text="{Binding LatestMeasurement.Photoresistor}" BackgroundColor="Transparent" TextColor="White" />
+                            </StackLayout>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </StackLayout>
+        </RefreshView>
+
+    </ContentPage.Content>
+
+</ContentPage>

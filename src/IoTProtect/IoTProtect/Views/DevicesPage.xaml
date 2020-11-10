@@ -43,10 +43,11 @@
                             <MenuItem Text="Delete" IsDestructive="True" />
                         </ViewCell.ContextActions>
                         <StackLayout Orientation="Vertical" BackgroundColor="SlateGray" Padding="0,0,0,1" Margin="0,0,0,5">
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="#1B96DA" Margin="0,0,0,-6">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="#1B96DA" Margin="0,0,0,-6" Spacing="3">
                                  <Label FontAttributes="Bold" FontSize="Default" TextColor="White" HorizontalOptions="StartAndExpand" Text="{Binding Description}"/>
-                                 <Label FontAttributes="Bold" VerticalTextAlignment="Center" FontSize="Small" TextColor="White" HorizontalOptions="End" Text="44%"/>
-                                <ProgressBar VerticalOptions="Center" BackgroundColor="Aquamarine" ProgressColor="Green" Progress="0.5" WidthRequest="25" />
+                                <Image Source="wifi_20.png"  />
+                                 <Label FontAttributes="Bold" VerticalTextAlignment="Center" FontSize="Small" TextColor="#282828" HorizontalOptions="End" Text="7%" Padding="5,0,0,0"/>
+                                <Image Source="battery_20.png" Margin="0,0,5,0"  />
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand">
 

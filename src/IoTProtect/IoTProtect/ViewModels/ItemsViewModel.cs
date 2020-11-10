@@ -34,7 +34,7 @@ namespace IoTProtect.ViewModels
             {
                 var newItem = item as Item;
                 Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
+                //await DataStore.AddItemAsync(newItem);
             });
 
             MessagingCenter.Subscribe<LoginViewModel, string>(this, "LoginCompleted", (sender, arg) =>
@@ -131,6 +131,7 @@ namespace IoTProtect.ViewModels
 
         async Task ExecuteLoadItemsCommand()
         {
+            /*
             IsBusy = true;
 
             try
@@ -150,6 +151,7 @@ namespace IoTProtect.ViewModels
             {
                 IsBusy = false;
             }
+            */
         }
 
     }
