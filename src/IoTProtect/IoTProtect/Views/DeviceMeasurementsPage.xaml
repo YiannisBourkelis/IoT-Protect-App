@@ -3,13 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IoTProtect.ViewModels"
              Title="{Binding Title}"
+             BackgroundColor="{StaticResource AppBackgroundColor}"
              x:Class="IoTProtect.Views.DeviceMeasurementsPage">
     <ContentPage.BindingContext>
         <local:DeviceMeasurementsViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <RefreshView IsRefreshing="{Binding IsLoading}" Command="{Binding LoadItemsCommand}">
+        <RefreshView IsRefreshing="{Binding IsLoading}" Command="{Binding LoadItemsCommand}" RefreshColor="White">
             <StackLayout VerticalOptions="FillAndExpand">
 
                 <CollectionView

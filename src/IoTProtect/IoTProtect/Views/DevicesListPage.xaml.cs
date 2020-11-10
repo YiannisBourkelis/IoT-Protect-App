@@ -33,8 +33,8 @@ namespace IoTProtect.Views
 
             //((DeviceMeasurementsViewModel)page.BindingContext).Item = FastDeepCloner.DeepCloner.Clone((DocumentSeries)ItemsCollectionView.SelectedItem); ;
             //((DeviceMeasurementsViewModel)page.BindingContext).OriginalItem = (DocumentSeries)ItemsCollectionView.SelectedItem;
-            await Navigation.PushAsync(page, true);
             await viewmodel.LoadItemsList();
+            await Navigation.PushAsync(page, true);
             DevicesListCollectionView.SelectedItem = null;
         }
     }
