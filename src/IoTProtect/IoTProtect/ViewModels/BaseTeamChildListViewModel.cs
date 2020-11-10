@@ -7,7 +7,7 @@ namespace IoTProtect.ViewModels
 {
     public class BaseTeamChildListViewModel<T, TRestService> : BaseListViewModel<T, TRestService>
                                         where T : ITeamChild<T>, IMessaging, IRest, new()
-                                        where TRestService : BaseTeamRestService<T>, new()
+                                        where TRestService : BaseRestService<T>, new()
     { 
 
 

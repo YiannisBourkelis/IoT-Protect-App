@@ -7,9 +7,9 @@ using Newtonsoft.Json;
 
 namespace IoTProtect.Services
 {
-    public class BaseTeamRestService<T> where T : IItem<T>, IRest
+    public class BaseRestService<T> where T : IItem<T>, IRest
     {
-        public BaseTeamRestService()
+        public BaseRestService()
         {
         }
 

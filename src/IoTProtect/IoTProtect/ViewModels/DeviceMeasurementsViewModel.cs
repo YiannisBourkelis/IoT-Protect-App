@@ -4,7 +4,7 @@ using IoTProtect.Services;
 
 namespace IoTProtect.ViewModels
 {
-    public class DeviceMeasurementsViewModel : BaseTeamChildListViewModel<SmokeDetectorMeasurement, BaseTeamRestService<SmokeDetectorMeasurement>>
+    public class DeviceMeasurementsViewModel : BaseTeamChildListViewModel<SmokeDetectorMeasurement, BaseRestService<SmokeDetectorMeasurement>>
     {
         public DeviceMeasurementsViewModel()
         {

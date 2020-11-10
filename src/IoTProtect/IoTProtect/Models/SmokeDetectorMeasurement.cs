@@ -23,6 +23,10 @@ namespace IoTProtect.Models
         [Newtonsoft.Json.JsonProperty("updated_at")]
         public DateTime UpdatedAt { get; set; }
 
+        //converters
+        [Newtonsoft.Json.JsonIgnore]
+        public DateTime CreatedAtLocalDateTime => this.CreatedAt.ToLocalTime();
+
         //IMessaging interface
         [Newtonsoft.Json.JsonIgnore]
         public string ItemInsertedMessage { get => "SmokeDetectorMeasurementInserted"; }

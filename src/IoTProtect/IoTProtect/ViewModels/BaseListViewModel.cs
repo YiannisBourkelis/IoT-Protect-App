@@ -11,7 +11,7 @@ namespace IoTProtect.ViewModels
 {
     public class BaseListViewModel<T, TRestService> : BaseViewModel
                         where T : IItem<T>, IMessaging, IRest, new()
-                        where TRestService : BaseTeamRestService<T>, new()
+                        where TRestService : BaseRestService<T>, new()
 
     {
         public BaseListViewModel()
@@ -90,7 +90,7 @@ namespace IoTProtect.ViewModels
             }
         }
 
-        public BaseTeamRestService<T> RestService { get; set; }
+        public BaseRestService<T> RestService { get; set; }
 
         async public Task<bool> LoadItemsList()
         {

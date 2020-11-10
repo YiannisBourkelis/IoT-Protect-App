@@ -48,7 +48,6 @@ namespace IoTProtect.Views
                     }
                 }
             }
-            //iotDevicesViewModel.DevicesDataStore.UpdateItemAsync(new DeviceInfo() { ID = 120 });
         }
 
         void EditLocation_Clicked(System.Object sender, System.EventArgs e)

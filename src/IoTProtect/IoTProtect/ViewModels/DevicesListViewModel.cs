@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace IoTProtect.ViewModels
 {
-    public class DevicesListViewModel : BaseListViewModel<Device, DevicesDataStore>
+    public class DevicesListViewModel : BaseListViewModel<Device, DevicesRestService>
     {
         public DevicesListViewModel()
         {

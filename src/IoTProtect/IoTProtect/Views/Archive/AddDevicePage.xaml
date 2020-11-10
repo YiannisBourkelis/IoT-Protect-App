@@ -38,8 +38,6 @@
                 <StackLayout IsVisible="{Binding atDeviceSetupCompleteState}">
                     <Label Style="{StaticResource ExplanationLabel}" Text="Η ρύθμιση του ανιχνευτή ολοκληρώθηκε. Αν θέλετε καταχωρείστε την τοποθεσία και το σημείο στο οποίο βρίσκεται ο ανιχνευτής για να τον αναγνωρίζετε ευκολότερα" />
 
-                    <controls:DeviceDetailLocationAndPointView>
-                    </controls:DeviceDetailLocationAndPointView>
 
                     <Button Style="{StaticResource ButtonGreenStyle}"/>
                 </StackLayout>

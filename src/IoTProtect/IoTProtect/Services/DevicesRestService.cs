@@ -3,9 +3,9 @@ using IoTProtect.Models;
 
 namespace IoTProtect.Services
 {
-    public class DevicesDataStore : BaseTeamRestService<Device>
+    public class DevicesRestService : BaseRestService<Device>
     {
-        public DevicesDataStore()
+        public DevicesRestService()
         {
         }
     }

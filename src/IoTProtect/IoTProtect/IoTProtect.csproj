@@ -23,5 +23,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
+    <Folder Include="Models\Archive\" />
+    <Folder Include="Services\Archive\" />
+    <Folder Include="Views\Archive\" />
+    <Folder Include="ViewModels\Archive\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\Archive\DeviceDetailLocationAndPointView.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Archive\DeviceDetailLocationAndPointView.xaml.cs" />
   </ItemGroup>
 </Project>
