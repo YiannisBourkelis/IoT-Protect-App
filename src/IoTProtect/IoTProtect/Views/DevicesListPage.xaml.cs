@@ -27,14 +27,34 @@ namespace IoTProtect.Views
                 //γίνεται null όταν θέτω ProductsCollectionView.SelectedItem = null;
                 return;
 
-            var page = new DeviceMeasurementsPage();
-            var viewmodel = page.BindingContext as DeviceMeasurementsViewModel;
-            viewmodel.Device = DevicesListCollectionView.SelectedItem as IoTProtect.Models.Device;
+            var selectedDevice = DevicesListCollectionView.SelectedItem as IoTProtect.Models.Device;
 
-            //((DeviceMeasurementsViewModel)page.BindingContext).Item = FastDeepCloner.DeepCloner.Clone((DocumentSeries)ItemsCollectionView.SelectedItem); ;
-            //((DeviceMeasurementsViewModel)page.BindingContext).OriginalItem = (DocumentSeries)ItemsCollectionView.SelectedItem;
-            await viewmodel.LoadItemsList();
-            await Navigation.PushAsync(page, true);
+            switch (selectedDevice.Type)
+            {
+                case Models.DeviceModelsEnum.SmokePhotoelectricFlameTemp_v1:
+                    var page = new DeviceMeasurementsPage();
+                    var viewmodel = page.BindingContext as DeviceMeasurementsViewModel;
+                    viewmodel.Device = selectedDevice;
+
+                    //((DeviceMeasurementsViewModel)page.BindingContext).Item = FastDeepCloner.DeepCloner.Clone((DocumentSeries)ItemsCollectionView.SelectedItem); ;
+                    //((DeviceMeasurementsViewModel)page.BindingContext).OriginalItem = (DocumentSeries)ItemsCollectionView.SelectedItem;
+                    await viewmodel.LoadItemsList();
+                    await Navigation.PushAsync(page, true);
+                    break;
+
+
+                case Models.DeviceModelsEnum.EnvironmentalMonStation_v1:
+                    var env_page = new EnvMonStationDeviceMeasurementsPage();
+                    var env_viewmodel = env_page.BindingContext as EnvMonStationMeasurementsViewModel;
+                    env_viewmodel.Device = selectedDevice;
+                    await env_viewmodel.LoadItemsList();
+                    await Navigation.PushAsync(env_page, true);
+                    break;
+
+                default:
+                    break;
+            }
+
             DevicesListCollectionView.SelectedItem = null;
         }
     }

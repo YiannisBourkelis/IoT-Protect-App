@@ -22,6 +22,8 @@ namespace IoTProtect.Models
         public string Place { get; set; }
         [Newtonsoft.Json.JsonProperty("location")]
         public string Location { get; set; }
+        [Newtonsoft.Json.JsonProperty("type")]
+        public DeviceModelsEnum Type { get; set; }
 
         //last measurement
         [Newtonsoft.Json.JsonProperty("latest_smoke_detector_measurement")]

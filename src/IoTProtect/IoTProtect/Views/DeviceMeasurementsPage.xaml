@@ -5,6 +5,7 @@
              Title="{Binding Title}"
              BackgroundColor="{StaticResource AppBackgroundColor}"
              x:Class="IoTProtect.Views.DeviceMeasurementsPage">
+
     <ContentPage.BindingContext>
         <local:DeviceMeasurementsViewModel />
     </ContentPage.BindingContext>
@@ -36,8 +37,8 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Text="Photoresistor:" Grid.Column="0" Grid.Row="0" Margin="10,10,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                                <Label Text="{Binding Photoresistor}" Grid.Column="1" Grid.Row="0" Margin="0,10,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                                <Label Text="Photoresistor:" Grid.Column="0" Grid.Row="0" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                <Label Text="{Binding Photoresistor}" Grid.Column="1" Grid.Row="0" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
                                 <Label Text="Ημερομηνία:" Grid.Column="0" Grid.Row="1" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                                 <Label Text="{Binding CreatedAtLocalDateTime}" Grid.Column="1" Grid.Row="1" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />

@@ -41,6 +41,8 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
                                         <RowDefinition Height="2" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
@@ -48,8 +50,8 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Text="Τοποθεσία:" Grid.Column="0" Grid.Row="0" Margin="10,10,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                                    <Label Text="{Binding Place}" Grid.Column="1" Grid.Row="0" Margin="0,10,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                                    <Label Text="Τοποθεσία:" Grid.Column="0" Grid.Row="0" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                    <Label Text="{Binding Place}" Grid.Column="1" Grid.Row="0" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
                                     <Label Text="Θέση:" Grid.Column="0" Grid.Row="1" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                                     <Label Text="{Binding Location}" Grid.Column="1" Grid.Row="1" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
@@ -60,13 +62,19 @@
                                     <Label Text="Ημερομηνία:" Grid.Column="0" Grid.Row="3" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                                     <Label Text="{Binding LatestMeasurement.CreatedAtLocalDateTime}" Grid.Column="1" Grid.Row="3" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                                    <Label Text="Μπαταρία:" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                                    <Label Text="3.76v  -  94%" Grid.Column="1" Grid.Row="4" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                                    <Label Text="Uptime:" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                    <Label Text="2 ημέρες, 3 ώρες, 7 λεπτά, 30 δευτ." Grid.Column="1" Grid.Row="4" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                                    <Label Text="Firmware:" Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                                    <Label Text="v1.0  -  (Ενημέρωση διαθέσιμη)" Grid.Column="1" Grid.Row="5" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                                    <Label Text="IP Address:" Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                    <Label Text="192.168.1.152" Grid.Column="1" Grid.Row="5" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                                    <BoxView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" HeightRequest="1" BackgroundColor="LightSteelBlue" />
+                                    <Label Text="Μπαταρία:" Grid.Column="0" Grid.Row="6" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                    <Label Text="3.76v  -  94%" Grid.Column="1" Grid.Row="6" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+
+                                    <Label Text="Firmware:" Grid.Column="0" Grid.Row="7" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                    <Label Text="v1.0  -  (Ενημέρωση διαθέσιμη)" Grid.Column="1" Grid.Row="7" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+
+                                    <BoxView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" HeightRequest="1" BackgroundColor="LightSteelBlue" />
                                 </Grid>
 
                                 <VisualStateManager.VisualStateGroups>
