@@ -29,6 +29,10 @@ namespace IoTProtect.Models
         [Newtonsoft.Json.JsonProperty("latest_smoke_detector_measurement")]
         public SmokeDetectorMeasurement LatestMeasurement { get; set; }
 
+        //last env mon station measurement
+        [Newtonsoft.Json.JsonProperty("latest_env_station_measurement")]
+        public EnvMonStationMeasurement LatestEnvMonStationMeasurement { get; set; }
+
         //IMessaging interface
         [Newtonsoft.Json.JsonIgnore]
         public string ItemInsertedMessage { get => "DeviceInserted"; }

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IoTProtect.ViewModels"
              Title="{Binding Title}"
+             BackgroundColor="{StaticResource AppBackgroundColor}"
              x:Class="IoTProtect.Views.EnvMonStationDeviceMeasurementsPage">
 
     <ContentPage.BindingContext>
