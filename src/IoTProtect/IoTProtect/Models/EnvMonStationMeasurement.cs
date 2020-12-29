@@ -23,11 +23,12 @@ namespace IoTProtect.Models
         [Newtonsoft.Json.JsonProperty("humidity")]
         public decimal Humidity { get; set; }
 
+        //TODO: kapoies fores - spania (peripou mia metrisi se 10 meres) oi times tou PMS einai null
         [Newtonsoft.Json.JsonProperty("PMS7003_MP_2_5")]
-        public decimal PMS7003_MP_2_5 { get; set; }
+        public decimal? PMS7003_MP_2_5 { get; set; }
 
         [Newtonsoft.Json.JsonProperty("PMS7003_MP_10")]
-        public decimal PMS7003_MP_10 { get; set; }
+        public decimal? PMS7003_MP_10 { get; set; }
 
         [Newtonsoft.Json.JsonProperty("carbonDioxide")]
         public decimal CarbonDioxide { get; set; }
