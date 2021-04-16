@@ -17,6 +17,12 @@ namespace IoTProtect.Models
         [Newtonsoft.Json.JsonProperty("photoresistor")]
         public int Photoresistor { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("uptime")]
+        public string Uptime { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("battery_voltage")]
+        public decimal? BatteryVoltage { get; set; }
+
         [Newtonsoft.Json.JsonProperty("created_at")]
         public DateTime CreatedAt { get; set; }
 

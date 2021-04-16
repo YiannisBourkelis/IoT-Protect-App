@@ -18,7 +18,7 @@
     <ContentPage.Resources>
 
         <DataTemplate x:Key="SmokeDetectorTemplate">
-            <SwipeView>
+            <SwipeView BackgroundColor="Black">
                 <!--
                 <SwipeView.RightItems>
                     <SwipeItem Text="Διαγραφή" BackgroundColor="Red" Command="{Binding Source={x:Reference CurrentInvoicesListPage}, Path=BindingContext.DeleteInvoiceCommand}" CommandParameter="{Binding}"></SwipeItem>
@@ -26,6 +26,8 @@
                 -->
                 <Grid RowSpacing="2">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
@@ -50,22 +52,28 @@
                     <Label Text="Photoresistor:" Grid.Column="0" Grid.Row="2" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                     <Label Text="{Binding LatestMeasurement.Photoresistor}" Grid.Column="1" Grid.Row="2" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" TextColor="Lime"/>
 
-                    <Label Text="Ημερομηνία:" Grid.Column="0" Grid.Row="3" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                    <Label Text="{Binding LatestMeasurement.CreatedAtLocalDateTime}" Grid.Column="1" Grid.Row="3" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                    <Label Text="Battery:" Grid.Column="0" Grid.Row="3" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                    <Label Text="{Binding LatestMeasurement.BatteryVoltage}" Grid.Column="1" Grid.Row="3" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" TextColor="Lime"/>
 
                     <Label Text="Uptime:" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                    <Label Text="2 ημέρες, 3 ώρες, 7 λεπτά, 30 δευτ." Grid.Column="1" Grid.Row="4" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                    <Label Text="{Binding LatestMeasurement.Uptime}" Grid.Column="1" Grid.Row="4" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" TextColor="Lime"/>
 
-                    <Label Text="IP Address:" Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                    <Label Text="192.168.1.152" Grid.Column="1" Grid.Row="5" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                    <Label Text="Ημερομηνία:" Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                    <Label Text="{Binding LatestMeasurement.CreatedAtLocalDateTime}" Grid.Column="1" Grid.Row="5" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                    <Label Text="Μπαταρία:" Grid.Column="0" Grid.Row="6" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                    <Label Text="3.76v  -  94%" Grid.Column="1" Grid.Row="6" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                    <Label Text="Uptime:" Grid.Column="0" Grid.Row="6" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                    <Label Text="2 ημέρες, 3 ώρες, 7 λεπτά, 30 δευτ." Grid.Column="1" Grid.Row="6" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                    <Label Text="Firmware:" Grid.Column="0" Grid.Row="7" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                    <Label Text="v1.0  -  (Ενημέρωση διαθέσιμη)" Grid.Column="1" Grid.Row="7" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                    <Label Text="IP Address:" Grid.Column="0" Grid.Row="7" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                    <Label Text="192.168.1.152" Grid.Column="1" Grid.Row="7" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                    <BoxView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" HeightRequest="1" BackgroundColor="LightSteelBlue" />
+                    <Label Text="Μπαταρία:" Grid.Column="0" Grid.Row="8" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                    <Label Text="3.76v  -  94%" Grid.Column="1" Grid.Row="8" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+
+                    <Label Text="Firmware:" Grid.Column="0" Grid.Row="9" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                    <Label Text="v1.0  -  (Ενημέρωση διαθέσιμη)" Grid.Column="1" Grid.Row="9" Margin="0,0,0,0" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+
+                    <BoxView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10" HeightRequest="1" BackgroundColor="LightSteelBlue" />
                 </Grid>
 
                 <VisualStateManager.VisualStateGroups>
@@ -87,7 +95,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="EnvMonStationDetectorTemplate">
-            <SwipeView>
+            <SwipeView BackgroundColor="Black">
                 <!--
                 <SwipeView.RightItems>
                     <SwipeItem Text="Διαγραφή" BackgroundColor="Red" Command="{Binding Source={x:Reference CurrentInvoicesListPage}, Path=BindingContext.DeleteInvoiceCommand}" CommandParameter="{Binding}"></SwipeItem>
@@ -190,8 +198,9 @@
                     SelectionChanged="DevicesListCollectionView_SelectionChanged"
                     ItemsSource="{Binding ItemsList}"
                     ItemTemplate="{StaticResource DeviceSelector}"
+                    ItemSizingStrategy="MeasureAllItems"
                     VerticalOptions="FillAndExpand">
-
+                    
                 </CollectionView>
 
             </StackLayout>

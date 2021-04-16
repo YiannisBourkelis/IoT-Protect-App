@@ -20,6 +20,7 @@
                     SelectionChanged="DeviceMeasurementsCollectionView_SelectionChanged"
                     ItemsSource="{Binding ItemsList}"
                     VerticalOptions="FillAndExpand"
+                    ItemSizingStrategy="MeasureFirstItem"
                     >
 
                     <CollectionView.ItemTemplate>
@@ -48,20 +49,20 @@
                                 <Label Text="Υγρασία:" Grid.Column="0" Grid.Row="1" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                                 <Label Text="{Binding Humidity, StringFormat='{0:N0} %'}" Grid.Column="1" Grid.Row="1" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                                <Label Text="Ατμοσφαιρική πίεση:" Grid.Column="0" Grid.Row="2" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                <Label Text="Ατμοσφ. πίεση:" Grid.Column="0" Grid.Row="2" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                                 <Label Text="{Binding Pressure, StringFormat='{0:N0} kPa'}" Grid.Column="1" Grid.Row="2" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                                <Label Text="Μικροσωματιδια 2.5 μm:" Grid.Column="0" Grid.Row="3" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                <Label Text="Μικροσωμ. 2.5μm:" Grid.Column="0" Grid.Row="3" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                                 <Label Text="{Binding PMS7003_MP_2_5, StringFormat='{0:N0} μg/m³'}" Grid.Column="1" Grid.Row="3" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                                <Label Text="Μικροσωματιδια 10 μm:" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                <Label Text="Μικροσωμ. 10μm:" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                                 <Label Text="{Binding PMS7003_MP_10, StringFormat='{0:N0} μg/m³'}" Grid.Column="1" Grid.Row="4" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
-                                <Label Text="Διοξείδιο του άνθρακα:" Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
+                                <Label Text="Διοξ. του άνθρακα:" Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                                 <Label Text="{Binding CarbonDioxide, StringFormat='{0:N0} ppm'}" Grid.Column="1" Grid.Row="5" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
                                 <Label Text="Ημερομηνία:" Grid.Column="0" Grid.Row="6" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
-                                <Label Text="{Binding CreatedAtLocalDateTime, StringFormat='{0:d} {0:HH:mm:ss}'}" Grid.Column="1" Grid.Row="6" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                                <Label Text="{Binding CreatedAtLocalDateTime, StringFormat='{0:d} {0:HH:mm:ss}'}" Grid.Column="1" Grid.Row="6" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" LineBreakMode="MiddleTruncation" />
 
                                 <Label Text="ID:" Grid.Column="0" Grid.Row="7" Margin="10,0,0,0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Gray" FontSize="Medium" />
                                 <Label Text="{Binding ID}" Grid.Column="1" Grid.Row="7" Margin="0,0,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium" />
