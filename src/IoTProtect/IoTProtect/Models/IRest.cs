@@ -5,6 +5,7 @@ namespace IoTProtect.Models
     {
         public string CreateItemRoutePath { get; }
         public string ReadItemsRoutePath { get; }
+        public string ReadItemsNextPageUrl { get; set; }
         public string UpdateItemRoutePath { get; }
         public string DeleteItemRoutePath { get; }
     }

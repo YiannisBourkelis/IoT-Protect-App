@@ -11,8 +11,11 @@ namespace IoTProtect.Models
 
         [Newtonsoft.Json.JsonProperty("current_page")]
         public ulong CurrentPage { get; set; }
+        [Newtonsoft.Json.JsonProperty("next_page_url")]
+        public string NextPageUrl { get; set; }
         [Newtonsoft.Json.JsonProperty("data")]
         public List<T> Data { get; set; }
+
 
     }
 }

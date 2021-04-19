@@ -31,8 +31,8 @@ namespace IoTProtect.ViewModels
         {
             try
             {
-                var tChild = new T { DeviceID = this.Device.ID };
-                var paginator = await RestService.ReadItemsAsync(tChild);
+                RestService.ItemChild = new T { DeviceID = this.Device.ID };
+                var paginator = await RestService.ReadItemsAsync();
                 ItemsList.Clear();
                 //ελεγχος για null στο .Data property για την περιπτωση που ο χρηστης υπερβει το rate threshold
                 paginator.Data?.ForEach(x => { ItemsList.Add(x); });

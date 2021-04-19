@@ -21,6 +21,8 @@
                     ItemsSource="{Binding ItemsList}"
                     VerticalOptions="FillAndExpand"
                     ItemSizingStrategy="MeasureFirstItem"
+                    RemainingItemsThreshold="10"
+                    RemainingItemsThresholdReachedCommand="{Binding RemainingItemsThresholdReachedCommand}"
                     >
 
                     <CollectionView.ItemTemplate>

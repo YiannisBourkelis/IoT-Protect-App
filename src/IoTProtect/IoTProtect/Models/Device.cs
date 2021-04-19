@@ -47,10 +47,11 @@ namespace IoTProtect.Models
         [Newtonsoft.Json.JsonIgnore]
         public string ReadItemsRoutePath { get => $"/api/user/devices"; }
         [Newtonsoft.Json.JsonIgnore]
+        public string ReadItemsNextPageUrl { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
         public string UpdateItemRoutePath { get => "/api/company/series"; }
         [Newtonsoft.Json.JsonIgnore]
         public string DeleteItemRoutePath { get => $"/api/series/{this.ID}"; }
-
 
         public bool HaveSamePropertyValues(Device item)
         {

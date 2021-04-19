@@ -57,6 +57,8 @@ namespace IoTProtect.Models
         [Newtonsoft.Json.JsonIgnore]
         public string ReadItemsRoutePath { get => $"/api/device/{DeviceID}/measurements"; }
         [Newtonsoft.Json.JsonIgnore]
+        public string ReadItemsNextPageUrl { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
         public string UpdateItemRoutePath { get => ""; }
         [Newtonsoft.Json.JsonIgnore]
         public string DeleteItemRoutePath { get => $""; }

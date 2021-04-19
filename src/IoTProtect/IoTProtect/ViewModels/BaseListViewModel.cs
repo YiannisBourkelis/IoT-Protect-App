@@ -22,6 +22,8 @@ namespace IoTProtect.ViewModels
 
             DeleteItemCommand = new Command<object>(async (model) => await ExecuteDeleteItemCommand(model));
 
+            RemainingItemsThresholdReachedCommand = new Command(async () => await ExecuteRemainingItemsThresholdReachedCommand());
+
             ItemsList = new ObservableCollection<T>();
 
             var tmpItemInstance = new T();
@@ -62,6 +64,7 @@ namespace IoTProtect.ViewModels
         //commands
         public Command LoadItemsCommand { get; set; }
         public ICommand DeleteItemCommand { get; set; }
+        public ICommand RemainingItemsThresholdReachedCommand { get; set; }
 
 
         ObservableCollection<T> mItemsList;
@@ -102,13 +105,36 @@ namespace IoTProtect.ViewModels
         {
             try
             {
-                var paginator = await RestService.ReadItemsAsync(new T());
+                var paginator = await RestService.ReadItemsAsync();
                 ItemsList.Clear();
                 //ελεγχος για null στο .Data property για την περιπτωση που ο χρηστης υπερβει το rate threshold
                 paginator.Data?.ForEach(x => { ItemsList.Add(x); });
             }
             finally
             {
+                IsLoading = false;
+            }
+        }
+
+        private bool IsLoadingNextPage { get; set; } = false;
+        protected virtual async Task ExecuteRemainingItemsThresholdReachedCommand()
+        {
+            if (IsLoadingNextPage)
+            {
+                return;
+            }
+
+            try
+            { 
+                IsLoadingNextPage = true;
+                await Task.Delay(3000);
+                var paginator = await RestService.ReadItemsAsync();
+                //ελεγχος για null στο .Data property για την περιπτωση που ο χρηστης υπερβει το rate threshold
+                paginator.Data?.ForEach(x => { ItemsList.Add(x); });
+            }
+            finally
+            {
+                IsLoadingNextPage = false;
                 IsLoading = false;
             }
         }

@@ -7,11 +7,13 @@ using Newtonsoft.Json;
 
 namespace IoTProtect.Services
 {
-    public class BaseRestService<T> where T : IItem<T>, IRest
+    public class BaseRestService<T> where T : IItem<T>, IRest, new()
     {
         public BaseRestService()
         {
         }
+
+        public T ItemChild { get; set; } = new T();
 
         public async Task<bool> CreateItemAsync(T item)
         {
@@ -29,12 +31,22 @@ namespace IoTProtect.Services
             return false;
         }
 
-        public async Task<SimplePaginator<T>> ReadItemsAsync(T item)
+        public async Task<SimplePaginator<T>> ReadItemsAsync()
         {
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
 
-            Uri uri = new Uri($"{Api.Url}{item.ReadItemsRoutePath}");
+            Uri uri = null;
+            if (ItemChild.ReadItemsNextPageUrl != null)
+            {
+                Uri next_page_uri = new Uri(ItemChild.ReadItemsNextPageUrl);
+                uri = new Uri($"{Api.Url}{next_page_uri.PathAndQuery}");
+                Console.WriteLine($"ReadItemsAsync - Will read next_page_uri: {uri}");
+            }
+            else
+            {
+                uri = new Uri($"{Api.Url}{ItemChild.ReadItemsRoutePath}");
+            }
 
             HttpResponseMessage response = await Api.AuthHttpClient.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead);
 
@@ -45,6 +57,7 @@ namespace IoTProtect.Services
                 if (!string.IsNullOrWhiteSpace(items_list_str))
                 {
                     paginator = JsonConvert.DeserializeObject<SimplePaginator<T>>(items_list_str);
+                    ItemChild.ReadItemsNextPageUrl = paginator.NextPageUrl;
                 }
             }
             sw.Stop();
