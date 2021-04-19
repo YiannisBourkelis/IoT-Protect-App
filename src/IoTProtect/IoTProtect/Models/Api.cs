@@ -7,12 +7,12 @@ namespace IoTProtect.Models
 {
     public static class Api
     {
-        //public const string Url = "https://iot.filoxeni.com";
-        public const string Url = "https://192.168.40.174:44300";
+        public const string Url = "https://iot.filoxeni.com";
+        //public const string Url = "https://192.168.40.174:44300";
         //public const string Url = "https://192.168.11.112:44300";
 
-        //public static string Token { get; set; } = "DCRkyCeUXE1u44z6rBLnWJ6STjRSzpgiRbTYYOa9";
-        public static string Token { get; set; } = "ZM60zgwx23bMyehOZnolnCr2cqm4ab7RjtftecrL";
+        public static string Token { get; set; } = "DCRkyCeUXE1u44z6rBLnWJ6STjRSzpgiRbTYYOa9";
+        //public static string Token { get; set; } = "ZM60zgwx23bMyehOZnolnCr2cqm4ab7RjtftecrL";
 
         public static HttpClient AuthHttpClient { get; set; }
         public static HttpClient HttpClient { get; set; }
@@ -38,7 +38,7 @@ namespace IoTProtect.Models
             Api.AuthHttpClient.DefaultRequestHeaders.ConnectionClose = false;
             Api.AuthHttpClient.DefaultRequestHeaders.Connection.Add("Keep-Alive");
             Api.AuthHttpClient.DefaultRequestHeaders.Add("keep-alive", "timeout=600");
-            Api.AuthHttpClient.DefaultRequestHeaders.Host = "iotprotect.local";
+            //Api.AuthHttpClient.DefaultRequestHeaders.Host = "iotprotect.local";
 
             //laravel api authentication related headers
             Api.AuthHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Api.Token);

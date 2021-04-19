@@ -31,6 +31,50 @@ namespace IoTProtect.Services
             return false;
         }
 
+        public async Task<SimplePaginator<T>> ReadNextPageItemsAsync()
+        {
+            if (this.ItemChild.ReadItemsNextPageUrl != null)
+            {
+                Uri next_page_uri = new Uri(this.ItemChild.ReadItemsNextPageUrl);
+                Uri uri = new Uri($"{Api.Url}{next_page_uri.PathAndQuery}");
+                Console.WriteLine($"ReadItemsAsync - Will read next_page_uri: {uri}");
+                return await _ReadItemsAsync(uri);
+            }
+
+            //den yparxei epomeni page opote epistrefw adeio simple paginator
+            return new SimplePaginator<T>();
+        }
+
+
+        public async Task<SimplePaginator<T>> ReadItemsAsync()
+        {
+            return await _ReadItemsAsync(new Uri($"{Api.Url}{this.ItemChild.ReadItemsRoutePath}"));
+        }
+
+        private async Task<SimplePaginator<T>> _ReadItemsAsync(Uri uri)
+        {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+
+
+            HttpResponseMessage response = await Api.AuthHttpClient.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead);
+
+            var paginator = new SimplePaginator<T>();
+            if (response.IsSuccessStatusCode)
+            {
+                var items_list_str = await response.Content.ReadAsStringAsync();
+                if (!string.IsNullOrWhiteSpace(items_list_str))
+                {
+                    paginator = JsonConvert.DeserializeObject<SimplePaginator<T>>(items_list_str);
+                    this.ItemChild.ReadItemsNextPageUrl = paginator.NextPageUrl;
+                }
+            }
+            sw.Stop();
+            Console.WriteLine($"ReadItemsAsync {typeof(T)}: {sw.ElapsedMilliseconds}");
+            return paginator;
+        }
+
+        /*
         public async Task<SimplePaginator<T>> ReadItemsAsync()
         {
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
@@ -64,6 +108,7 @@ namespace IoTProtect.Services
             Console.WriteLine($"ReadItemsAsync: {sw.ElapsedMilliseconds}");
             return paginator;
         }
+        */
 
         public async Task<bool> UpdateItem(T item)
         {

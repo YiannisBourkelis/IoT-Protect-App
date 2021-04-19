@@ -117,7 +117,7 @@ namespace IoTProtect.ViewModels
         }
 
         private bool IsLoadingNextPage { get; set; } = false;
-        protected virtual async Task ExecuteRemainingItemsThresholdReachedCommand()
+        virtual protected async Task ExecuteRemainingItemsThresholdReachedCommand()
         {
             if (IsLoadingNextPage)
             {
@@ -125,11 +125,12 @@ namespace IoTProtect.ViewModels
             }
 
             try
-            { 
+            {
                 IsLoadingNextPage = true;
-                await Task.Delay(3000);
-                var paginator = await RestService.ReadItemsAsync();
+                await Task.Delay(1000);
+                var paginator = await RestService.ReadNextPageItemsAsync();
                 //ελεγχος για null στο .Data property για την περιπτωση που ο χρηστης υπερβει το rate threshold
+                //ή είμαστε ήδη στην τελευταία και δεν υπάρχουν άλλα data
                 paginator.Data?.ForEach(x => { ItemsList.Add(x); });
             }
             finally
